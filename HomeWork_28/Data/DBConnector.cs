@@ -19,24 +19,24 @@ namespace HomeWork_28.Data
 
         public DBConnector()
         {
-            _connection = new(SqlLogin.GetConnectionString("Clients_HW_28")); ;
+            _connection = new NpgsqlConnection(SqlLogin.GetConnectionString("Clients_HW_28")); ;
             _adapter = new NpgsqlDataAdapter();
             _data = new DataTable();
            
         }
 
-        public void Preraring()
+        public void Preparing()
         {
             #region select
 
-             _sql = "select * from Client_HW_28 Order By Client_HW_28.Client_id";
+             _sql = "select * from Client Order By Client.ID";
             _adapter.SelectCommand = new NpgsqlCommand(_sql, _connection);
 
             #endregion
 
             #region insert
 
-            _sql = @"INSERT INTO Clients_HW_28 (Client_id,";
+            _sql = @"INSERT INTO Client (Client.ID,";
 
 
             #endregion
